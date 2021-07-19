@@ -1,0 +1,7 @@
+# sorce: /etc/apt/sources.list
+
+deb http://deb.debian.org/debian/ testing main
+deb-src http://deb.debian.org/debian/ testing main
+
+deb http://ppa.launchpad.net/openstack-ubuntu-testing/wallaby/ubuntu focal main 
+deb-src http://ppa.launchpad.net/openstack-ubuntu-testing/wallaby/ubuntu focal main 
