@@ -1,7 +1,7 @@
 127.0.0.1	localhost
 
 # -- Edit Here -- #
-192.168.90.12      ip_database
+192.168.90.186     ip_database
 192.168.90.45      keystone
 192.168.90.200     glance
 192.168.90.249     nova

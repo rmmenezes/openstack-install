@@ -110,3 +110,18 @@ openstack compute service list --service nova-compute
 su -s /bin/sh -c "nova-manage cell_v2 discover_hosts --verbose" nova
 
 openstack flavor create --public m1.extra_tiny --id auto --ram 256 --disk 0 --vcpus 1 --rxtx-factor 1
+
+
+# Neutron
+apt install neutron-linuxbridge-agent -y
+
+mv /etc/neutron/neutron.conf /etc/neutron/neutron.conf.original
+cp ./files/nova/neutron.conf /etc/neutron/neutron.conf
+chgrp neutron /etc/neutron/neutron.conf
+
+mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini.original
+cp ./files/nova/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+chgrp neutron /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+
+service nova-compute restart
+service neutron-linuxbridge-agent restart
