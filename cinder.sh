@@ -49,3 +49,5 @@ sed -i '/devices {$/a filter = [ "a/vdb/", "r/.*/"]' /etc/lvm/lvm.conf
 
 apt install cinder-volume -y
 systemctl restart cinder-volume
+
+echo "FIM !"

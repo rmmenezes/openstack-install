@@ -40,3 +40,5 @@ iptables -A INPUT -i enp1s0 -p tcp --destination-port 3306 -j ACCEPT
 service mysql restart
 sudo systemctl restart mysql
 sudo systemctl restart mariadb
+
+echo "FIM !"

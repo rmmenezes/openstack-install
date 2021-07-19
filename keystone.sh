@@ -36,3 +36,4 @@ openstack user create --domain default --password password myuser
 openstack role create myrole
 openstack role add --project myproject --user myuser myrole
 
+echo "FIM !"

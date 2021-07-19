@@ -57,3 +57,4 @@ sudo systemctl restart mariadb
 service mysql restart
 
 
+echo "FIM !"

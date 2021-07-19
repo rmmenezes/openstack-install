@@ -7,3 +7,5 @@ mv /etc/openstack-dashboard/local_settings.py /etc/openstack-dashboard/local_set
 cp ./files/horizon/local_settings.py /etc/openstack-dashboard/local_settings.py 
 
 systemctl reload apache2.service
+
+echo "FIM !"

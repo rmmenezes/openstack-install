@@ -66,3 +66,5 @@ service neutron-linuxbridge-agent restart
 
 openstack extension list --network
 openstack network agent list
+
+echo "FIM !"
