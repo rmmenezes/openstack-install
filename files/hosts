@@ -12,4 +12,4 @@
 
 
 
-# apt install nano git sudo -y && git clone https://github.com/rmmenezes/openstack-install-shellscript && cd openstack-install-shellscript/ && chmod 777 *.sh && ./debian_update.sh && ./default.sh
+# apt install nano git sudo -y && git clone https://github.com/rmmenezes/openstack-install && cd openstack-install/ && chmod 777 *.sh && ./debian_update.sh && ./default.sh
