@@ -17,8 +17,8 @@ chmod 777 ./scripts/debian_update.sh
 chmod 777 ./scripts/default.sh
 chmod 777 ./scripts/glance.sh
 
-./scripts/debian_update.sh
-./scripts/default.sh
-./scripts/glance.sh
+scripts/debian_update.sh
+scripts/default.sh
+scripts/glance.sh
 
 service rabbit* restart

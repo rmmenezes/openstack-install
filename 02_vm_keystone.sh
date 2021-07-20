@@ -19,8 +19,8 @@ chmod 777 ./scripts/debian_update.sh
 chmod 777 ./scripts/default.sh
 chmod 777 ./scripts/keystone.sh
 
-./scripts/debian_update.sh
-./scripts/default.sh
-./scripts/keystone.sh
+scripts/debian_update.sh
+scripts/default.sh
+scripts/keystone.sh
 
 service rabbit* restart

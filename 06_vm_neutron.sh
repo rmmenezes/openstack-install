@@ -17,8 +17,8 @@ chmod 777 ./scripts/debian_update.sh
 chmod 777 ./scripts/default.sh
 chmod 777 ./scripts/neutron.sh
 
-./scripts/debian_update.sh
-./scripts/default.sh
-./scripts/neutron.sh
+scripts/debian_update.sh
+scripts/default.sh
+scripts/neutron.sh
 
 service rabbit* restart
