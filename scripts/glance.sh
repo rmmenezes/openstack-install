@@ -17,7 +17,7 @@ export OS_IDENTITY_API_VERSION=3
 export OS_TENANT_NAME=admin
 
 mv /etc/glance/glance-api.conf /etc/glance/glance-api.conf.original
-cp ../files/glance/glance-api.conf /etc/glance/glance-api.conf
+cp files/glance/glance-api.conf /etc/glance/glance-api.conf
 chgrp glance /etc/glance/glance-api.conf
 
 su -s /bin/sh -c "glance-manage db_sync" glance

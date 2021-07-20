@@ -3,7 +3,7 @@ set -x #echo on
 
 mv /etc/apt/sources.list /etc/apt/sources.list.original
 
-cat ../files/debian/sources.list > /etc/apt/sources.list 
+cat files/debian/sources.list > /etc/apt/sources.list 
 
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -yq
 sudo DEBIAN_FRONTEND=noninteractive apt-get install gnupg -yq

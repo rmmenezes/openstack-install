@@ -1,7 +1,7 @@
 127.0.0.1	localhost
 
 # -- Edit Here -- #
-192.168.90.12       ip_database
+192.168.90.186       ip_database
 192.168.90.45       keystone
 192.168.90.200      glance
 192.168.90.249      nova
@@ -13,3 +13,4 @@
 
 
 # apt install nano git sudo -y && git clone https://github.com/rmmenezes/openstack-install && cd openstack-install/ && chmod 777 *.sh && ./debian_update.sh && ./default.sh
+

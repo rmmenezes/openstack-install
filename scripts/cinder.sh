@@ -32,7 +32,7 @@ openstack endpoint create --region RegionOne volumev3 admin http://cinder:8776/v
 apt install cinder-api cinder-scheduler -y
 
 mv /etc/cinder/cinder.conf /etc/cinder/cinder.conf.original
-cp ../files/cinder/cinder.conf /etc/cinder/cinder.conf
+cp files/cinder/cinder.conf /etc/cinder/cinder.conf
 chgrp cinder /etc/cinder/cinder.conf
 
 su -s /bin/sh -c "cinder-manage db sync" cinder

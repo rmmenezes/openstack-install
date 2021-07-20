@@ -29,25 +29,25 @@ apt-get update -y
 apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent neutron-linuxbridge-agent -y
 
 mv /etc/neutron/neutron.conf /etc/neutron/neutron.conf.original
-cp ../files/neutron/neutron.conf /etc/neutron/neutron.conf
+cp files/neutron/neutron.conf /etc/neutron/neutron.conf
 chgrp neutron /etc/neutron/neutron.conf
 
 mv /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugins/ml2/ml2_conf.ini.original
-cp ../files/neutron/ml2_conf.ini /etc/neutron/plugins/ml2/ml2_conf.ini
+cp files/neutron/ml2_conf.ini /etc/neutron/plugins/ml2/ml2_conf.ini
 chgrp neutron /etc/neutron/plugins/ml2/ml2_conf.ini
 
 
 mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini.original
-cp ../files/neutron/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+cp files/neutron/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 chgrp neutron /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 
 mv /etc/neutron/dhcp_agent.ini /etc/neutron/dhcp_agent.ini.original
-cp ../files/neutron/dhcp_agent.ini /etc/neutron/dhcp_agent.ini
+cp files/neutron/dhcp_agent.ini /etc/neutron/dhcp_agent.ini
 chgrp neutron /etc/neutron/dhcp_agent.ini
 
 mv /etc/neutron/metadata_agent.ini /etc/neutron/metadata_agent.ini.original
-cp ../files/neutron/metadata_agent.ini /etc/neutron/metadata_agent.ini
+cp files/neutron/metadata_agent.ini /etc/neutron/metadata_agent.ini
 chgrp neutron /etc/neutron/metadata_agent.ini
 
 su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
