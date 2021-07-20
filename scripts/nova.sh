@@ -2,18 +2,18 @@
 set -x #echo on
 echo "nova" > /etc/hostname
 
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_api;"
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova;"
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_cell0;"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_api;"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova;"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_cell0;"
 
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'ip_database' IDENTIFIED BY 'NOVA_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'ip_database' IDENTIFIED BY 'NOVA_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'ip_database' IDENTIFIED BY 'NOVA_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
 
 
@@ -34,9 +34,9 @@ openstack endpoint create --region RegionOne compute internal http://nova:8774/v
 openstack endpoint create --region RegionOne compute admin http://nova:8774/v2.1
 
 
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS placement;"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'ip_database' IDENTIFIED BY 'PLACEMENT_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' IDENTIFIED BY 'PLACEMENT_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS placement;"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'database' IDENTIFIED BY 'PLACEMENT_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' IDENTIFIED BY 'PLACEMENT_DBPASS';"
 
 
 openstack user create --domain default --password PLACEMENT_PASS placement

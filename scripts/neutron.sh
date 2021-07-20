@@ -3,9 +3,9 @@ set -x #echo on
 echo "neutron" > /etc/hostname
 
 
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE neutron;"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'ip_database' IDENTIFIED BY 'NEUTRON_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE neutron;"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'database' IDENTIFIED BY 'NEUTRON_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';"
 
 export OS_USERNAME=admin
 export OS_PASSWORD=ADMIN_PASS

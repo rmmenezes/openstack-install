@@ -7,7 +7,7 @@ echo nova > /etc/hostname
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 
-cat /etc/rabbitmq/rabbitmq-env.conf << EOF
+cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
 NODENAME=rabbit@nova
 NODE_IP_ADDRESS=192.168.90.249
 NODE_PORT=5672

@@ -7,7 +7,7 @@ echo horizon > /etc/hostname
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 
-cat /etc/rabbitmq/rabbitmq-env.conf << EOF
+cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
 NODENAME=rabbit@horizon
 NODE_IP_ADDRESS=192.168.90.17
 NODE_PORT=5672

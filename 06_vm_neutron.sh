@@ -7,7 +7,7 @@ echo neutron > /etc/hostname
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 
-cat /etc/rabbitmq/rabbitmq-env.conf << EOF
+cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
 NODENAME=rabbit@neutron
 NODE_IP_ADDRESS=192.168.90.103
 NODE_PORT=5672

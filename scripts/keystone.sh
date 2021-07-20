@@ -1,9 +1,9 @@
 #!/bin/bash
 set -x #echo on
 
-mysql --user="openstack" --password="password" -h ip_database --execute="CREATE DATABASE IF NOT EXISTS keystone;"
-mysql --user="openstack" --password="password" -h ip_database --execute="GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'ip_database' IDENTIFIED BY 'KEYSTONE_DBPASS';"
-mysql --user="openstack" --password="password" -h ip_database --execute="GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';"
+mysql --user="openstack" --password="password" -h database --execute="CREATE DATABASE IF NOT EXISTS keystone;"
+mysql --user="openstack" --password="password" -h database --execute="GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'database' IDENTIFIED BY 'KEYSTONE_DBPASS';"
+mysql --user="openstack" --password="password" -h database --execute="GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';"
 
 apt install keystone -y
 
