@@ -7,12 +7,24 @@ apt-get upgrade -y
 
 # Arquivo de hosts (DNS)
 mv /etc/hosts /etc/hosts.original
-cp files/hosts /etc/hosts 
+cp ./files/hosts /etc/hosts 
 chgrp root /etc/hosts 
 
 # apt install python3-openstackclient -y (CLIENTE PARA UBUNTU!)
 apt install python3-pip -y
 pip install python-openstackclient
+
+hostname horizon
+echo horizon > /etc/hostname
+
+mkdir /etc/rabbitmq/
+touch /etc/rabbitmq/rabbitmq-env.conf
+
+cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
+NODENAME=rabbit@horizon
+NODE_IP_ADDRESS=192.168.90.17
+NODE_PORT=5672
+EOF
 
 apt install rabbitmq-server -y
 rabbitmqctl add_user openstack RABBIT_PASS
@@ -60,5 +72,14 @@ net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-ip6tables=1
 EOF
 sysctl -p /etc/sysctl.conf
+
+echo "FIM !"
+
+apt install openstack-dashboard -y
+
+mv /etc/openstack-dashboard/local_settings.py /etc/openstack-dashboard/local_settings.py.original
+cp ./files/horizon/local_settings.py /etc/openstack-dashboard/local_settings.py 
+
+systemctl reload apache2.service
 
 echo "FIM !"
