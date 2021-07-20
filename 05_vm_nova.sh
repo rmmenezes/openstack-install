@@ -13,9 +13,9 @@ NODE_IP_ADDRESS=192.168.90.249
 NODE_PORT=5672
 EOF
 
-chmod 777 ./scripts/debian_update.sh
-chmod 777 ./scripts/default.sh
-chmod 777 ./scripts/nova.sh
+chmod 777 scripts/debian_update.sh
+chmod 777 scripts/default.sh
+chmod 777 scripts/nova.sh
 
 scripts/debian_update.sh
 scripts/default.sh
