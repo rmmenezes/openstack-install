@@ -4,7 +4,7 @@ set -x #echo on
 
 # Arquivo de hosts (DNS)
 mv /etc/hosts /etc/hosts.original
-cp ./files/hosts /etc/hosts 
+cp ../files/hosts /etc/hosts 
 chgrp root /etc/hosts 
 
 apt install mariadb-server python3-pymysql -y

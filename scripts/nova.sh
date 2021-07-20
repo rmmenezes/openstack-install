@@ -64,7 +64,7 @@ apt install placement-api -y
 apt install python3-pip -y
 
 mv /etc/placement/placement.conf /etc/placement/placement.conf.original
-cp ./files/nova/placement.conf /etc/placement/placement.conf
+cp ../files/nova/placement.conf /etc/placement/placement.conf
 chgrp placement /etc/placement/placement.conf
 
 su -s /bin/sh -c "placement-manage db sync" placement
@@ -77,7 +77,7 @@ openstack --os-placement-api-version 1.6 trait list --sort-column name
 apt install nova-api nova-conductor nova-novncproxy nova-scheduler -y
 
 mv /etc/nova/nova.conf /etc/nova/nova.conf.original
-cp ./files/nova/nova.conf /etc/nova/nova.conf
+cp ../files/nova/nova.conf /etc/nova/nova.conf
 chgrp nova /etc/nova/nova.conf
 
 su -s /bin/sh -c "nova-manage api_db sync" nova
@@ -101,7 +101,7 @@ apt install nova-compute -y
 egrep -c '(vmx|svm)' /proc/cpuinfo
 
 mv /etc/nova/nova-compute.conf /etc/nova/nova-compute.conf.original
-cp ./files/nova/nova-compute.conf /etc/nova/nova-compute.conf
+cp ../files/nova/nova-compute.conf /etc/nova/nova-compute.conf
 chgrp nova /etc/nova/nova-compute.conf
 
 service nova-compute restart
@@ -115,11 +115,11 @@ openstack flavor create --public m1.extra_tiny --id auto --ram 256 --disk 0 --vc
 apt install neutron-linuxbridge-agent -y
 
 mv /etc/neutron/neutron.conf /etc/neutron/neutron.conf.original
-cp ./files/nova/neutron.conf /etc/neutron/neutron.conf
+cp ../files/nova/neutron.conf /etc/neutron/neutron.conf
 chgrp neutron /etc/neutron/neutron.conf
 
 mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini.original
-cp ./files/nova/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+cp ../files/nova/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 chgrp neutron /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 service nova-compute restart
