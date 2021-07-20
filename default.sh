@@ -53,8 +53,12 @@ EOF
 service mysql restart
 sudo systemctl restart mysql
 sudo systemctl restart mariadb
-
 service mysql restart
 
+cat > /etc/sysctl.conf << EOF
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-ip6tables=1
+EOF
+sysctl -p /etc/sysctl.conf
 
 echo "FIM !"
