@@ -22,7 +22,7 @@ EOF
 service mysql restart
 
 #----------------------------------------------------
-sudo mysql_secure_installation
+mysql_secure_installation
 
 #Documentação: https://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server
 # Cria o usuario para ser acessado remotamente
