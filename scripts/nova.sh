@@ -14,15 +14,6 @@ mysql --user="openstack" -h database --password="password" --execute="GRANT ALL 
 mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
 mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
-export OS_USERNAME=admin
-export OS_PASSWORD=ADMIN_PASS
-export OS_PROJECT_NAME=admin
-export OS_USER_DOMAIN_NAME=Default
-export OS_PROJECT_DOMAIN_NAME=Default
-export OS_AUTH_URL=http://keystone:5000/v3
-export OS_IDENTITY_API_VERSION=3
-export OS_TENANT_NAME=admin
-
 openstack user create --domain default --password NOVA_PASS nova
 openstack role add --project service --user nova admin
 openstack service create --name nova --description "OpenStack Compute" compute
@@ -60,8 +51,9 @@ mkdir /home/placement
 apt install placement-api -y
 apt install python3-pip -y
 
+
 mv /etc/placement/placement.conf /etc/placement/placement.conf.original
-cp ./files/nova/placement.conf /etc/placement/placement.conf
+eval "echo \"$(cat ./files/nova/placement.conf.template)\" > /etc/placement/placement.conf"
 chgrp placement /etc/placement/placement.conf
 
 su -s /bin/sh -c "placement-manage db sync" placement
@@ -74,7 +66,7 @@ openstack --os-placement-api-version 1.6 trait list --sort-column name
 apt install nova-api nova-conductor nova-novncproxy nova-scheduler -y
 
 mv /etc/nova/nova.conf /etc/nova/nova.conf.original
-cp ./files/nova/nova.conf /etc/nova/nova.conf
+eval "echo \"$(cat ./files/nova/nova.conf.template)\" > /etc/nova/nova.conf"
 chgrp nova /etc/nova/nova.conf
 
 su -s /bin/sh -c "nova-manage api_db sync" nova
@@ -98,8 +90,9 @@ apt install nova-compute -y
 egrep -c '(vmx|svm)' /proc/cpuinfo
 
 mv /etc/nova/nova-compute.conf /etc/nova/nova-compute.conf.original
-cp ./files/nova/nova-compute.conf /etc/nova/nova-compute.conf
+eval "echo \"$(cat ./files/nova/nova-compute.conf.template)\" > /etc/nova/nova-compute.conf"
 chgrp nova /etc/nova/nova-compute.conf
+
 
 service nova-compute restart
 
@@ -112,11 +105,12 @@ openstack flavor create --public m1.extra_tiny --id auto --ram 256 --disk 0 --vc
 apt install neutron-linuxbridge-agent -y
 
 mv /etc/neutron/neutron.conf /etc/neutron/neutron.conf.original
-cp ./files/nova/neutron.conf /etc/neutron/neutron.conf
+eval "echo \"$(cat ./files/nova/neutron.conf.template)\" > /etc/neutron/neutron.conf"
 chgrp neutron /etc/neutron/neutron.conf
 
 mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini.original
 cp ./files/nova/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+eval "echo \"$(cat ./files/nova/linuxbridge_agent.ini.template)\" > /etc/neutron/plugins/ml2/linuxbridge_agent.ini"
 chgrp neutron /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 service nova-compute restart

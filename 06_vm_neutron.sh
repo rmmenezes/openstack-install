@@ -4,12 +4,17 @@ set -x #echo on
 hostname neutron
 echo neutron > /etc/hostname
 
+# Carregando as variaveis no ambiente
+chmod 777 ./variables.sh
+./variables.sh
+
+
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 
 cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
 NODENAME=rabbit@neutron
-NODE_IP_ADDRESS=192.168.122.156
+NODE_IP_ADDRESS=$ip_vm_neutron
 NODE_PORT=5672
 EOF
 

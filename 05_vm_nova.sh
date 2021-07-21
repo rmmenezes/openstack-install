@@ -4,12 +4,17 @@ set -x #echo on
 hostname nova
 echo nova > /etc/hostname
 
+# Carregando as variaveis no ambiente
+chmod 777 ./variables.sh
+./variables.sh
+
+
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 
 cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
 NODENAME=rabbit@nova
-NODE_IP_ADDRESS=192.168.122.9
+NODE_IP_ADDRESS=$ip_vm_nova
 NODE_PORT=5672
 EOF
 

@@ -20,15 +20,6 @@ keystone-manage bootstrap --bootstrap-password ADMIN_PASS --bootstrap-admin-url 
   
 service apache2 restart
 
-export OS_USERNAME=admin
-export OS_PASSWORD=ADMIN_PASS
-export OS_PROJECT_NAME=admin
-export OS_USER_DOMAIN_NAME=Default
-export OS_PROJECT_DOMAIN_NAME=Default
-export OS_AUTH_URL=http://keystone:5000/v3
-export OS_IDENTITY_API_VERSION=3
-export OS_TENANT_NAME=admin
-
 openstack domain create --description "An Example Domain" example
 openstack project create --domain default --description "Service Project" service
 openstack project create --domain default --description "Demo Project" myproject

@@ -4,12 +4,16 @@ set -x #echo on
 hostname keystone
 echo keystone > /etc/hostname
 
+# Carregando as variaveis no ambiente
+chmod 777 ./variables.sh
+./variables.sh
+
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 
 cat > /etc/rabbitmq/rabbitmq-env.conf << EOF
 NODENAME=rabbit@keystone
-NODE_IP_ADDRESS=192.168.122.49
+NODE_IP_ADDRESS=$ip_vm_keystone
 NODE_PORT=5672
 EOF
 
