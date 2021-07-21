@@ -1,21 +1,18 @@
 #!/bin/bash
 set -x #echo on
-echo "nova" > /etc/hostname
 
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_api;"
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova;"
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_cell0;"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_api;"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova;"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS nova_cell0;"
 
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'ip_database' IDENTIFIED BY 'NOVA_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'ip_database' IDENTIFIED BY 'NOVA_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'ip_database' IDENTIFIED BY 'NOVA_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
-
-
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'database' IDENTIFIED BY 'NOVA_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';"
 
 export OS_USERNAME=admin
 export OS_PASSWORD=ADMIN_PASS
@@ -34,9 +31,9 @@ openstack endpoint create --region RegionOne compute internal http://nova:8774/v
 openstack endpoint create --region RegionOne compute admin http://nova:8774/v2.1
 
 
-mysql --user="openstack" -h ip_database --password="password" --execute="CREATE DATABASE IF NOT EXISTS placement;"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'ip_database' IDENTIFIED BY 'PLACEMENT_DBPASS';"
-mysql --user="openstack" -h ip_database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' IDENTIFIED BY 'PLACEMENT_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS placement;"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'database' IDENTIFIED BY 'PLACEMENT_DBPASS';"
+mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' IDENTIFIED BY 'PLACEMENT_DBPASS';"
 
 
 openstack user create --domain default --password PLACEMENT_PASS placement
@@ -52,12 +49,12 @@ apt install nova-compute -y
 apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils libguestfs-tools genisoimage virtinst libosinfo-bin -y
 
 # Add usuario Nova no grupo libvirt
-adduser nova libvirt
-adduser nova libvirt-qemu
+sudo DEBIAN_FRONTEND=noninteractive -yq adduser nova libvirt
+sudo DEBIAN_FRONTEND=noninteractive -yq adduser nova libvirt-qemu
 
 # Atualiza os grupos
-newgrp libvirt
-newgrp libvirt-qemu
+sudo DEBIAN_FRONTEND=noninteractive -yq newgrp libvirt
+sudo DEBIAN_FRONTEND=noninteractive -yq newgrp libvirt-qemu
 
 mkdir /home/placement
 apt install placement-api -y

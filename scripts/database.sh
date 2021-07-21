@@ -1,7 +1,6 @@
 #!/bin/bash
 set -x #echo on
 
-
 # Arquivo de hosts (DNS)
 mv /etc/hosts /etc/hosts.original
 cp ./files/hosts /etc/hosts 
