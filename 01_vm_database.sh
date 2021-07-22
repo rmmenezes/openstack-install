@@ -18,7 +18,6 @@ NODE_PORT=5672
 EOF
 
 chmod 777 ./scripts/debian_update.sh
-chmod 777 ./scripts/default.sh
 chmod 777 ./scripts/database.sh
 
 ./scripts/debian_update.sh
