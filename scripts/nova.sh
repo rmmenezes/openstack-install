@@ -40,12 +40,12 @@ apt install nova-compute -y
 apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils libguestfs-tools genisoimage virtinst libosinfo-bin -y
 
 # Add usuario Nova no grupo libvirt
-sudo DEBIAN_FRONTEND=noninteractive -yq adduser nova libvirt
-sudo DEBIAN_FRONTEND=noninteractive -yq adduser nova libvirt-qemu
+sudo DEBIAN_FRONTEND=noninteractive adduser nova libvirt
+sudo DEBIAN_FRONTEND=noninteractive adduser nova libvirt-qemu
 
 # Atualiza os grupos
-sudo DEBIAN_FRONTEND=noninteractive -yq newgrp libvirt
-sudo DEBIAN_FRONTEND=noninteractive -yq newgrp libvirt-qemu
+sudo DEBIAN_FRONTEND=noninteractive newgrp libvirt
+sudo DEBIAN_FRONTEND=noninteractive newgrp libvirt-qemu
 
 mkdir /home/placement
 apt install placement-api -y
