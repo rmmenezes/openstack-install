@@ -7,9 +7,10 @@ echo glance > /etc/hostname
 # Carregando as variaveis no ambiente
 chmod 777 ./variables.sh
 ./variables.sh
+source ~/.bashrc
 
 # Arquivo de hosts (DNS)
-mv /etc/hosts /etc/hosts.original
+cp /etc/hosts /etc/hosts.original
 eval "echo \"$(cat ./files/hosts.template)\" > /etc/hosts"
 
 

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cat > ~/.bashrc << EOF
 ## Edit here ##
 export ip_vm_database="192.168.122.102"
 export ip_vm_keystone="192.168.122.49"
@@ -19,3 +20,6 @@ export OS_AUTH_URL=http://keystone:5000/v3
 export OS_IDENTITY_API_VERSION=3
 export OS_TENANT_NAME=admin
 ## Dont edit here ##
+EOF
+
+source ~/.bashrc
