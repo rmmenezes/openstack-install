@@ -8,6 +8,10 @@ echo database > /etc/hostname
 chmod 777 ./variables.sh
 ./variables.sh
 
+# Arquivo de hosts (DNS)
+mv /etc/hosts /etc/hosts.original
+eval "echo \"$(cat ./files/hosts.template)\" > /etc/hosts"
+
 mkdir /etc/rabbitmq/
 touch /etc/rabbitmq/rabbitmq-env.conf
 

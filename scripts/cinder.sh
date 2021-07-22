@@ -6,7 +6,6 @@ mysql --user="openstack" -h database --password="password" --execute="CREATE DAT
 mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'database' IDENTIFIED BY 'CINDER_DBPASS';"
 mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' IDENTIFIED BY 'CINDER_DBPASS';"
 	
-
 openstack user create --domain default --password CINDER_PASS cinder
 openstack role add --project service --user cinder admin
 

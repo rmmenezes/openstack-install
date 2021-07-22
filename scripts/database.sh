@@ -1,11 +1,6 @@
 #!/bin/bash
 set -x #echo on
 
-# Arquivo de hosts (DNS)
-mv /etc/hosts /etc/hosts.original
-cp ./files/hosts.template /etc/hosts 
-chgrp root /etc/hosts 
-
 apt install mariadb-server python3-pymysql -y
 touch /etc/mysql/mariadb.conf.d/99-openstack.cnf
 cat > /etc/mysql/mariadb.conf.d/99-openstack.cnf << EOF
