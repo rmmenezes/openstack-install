@@ -115,5 +115,6 @@ chgrp neutron /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 service nova-compute restart
 service neutron-linuxbridge-agent restart
+nova-manage cell_v2 simple_cell_setup
 
 echo "FIM !"
