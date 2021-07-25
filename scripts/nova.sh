@@ -109,7 +109,6 @@ eval "echo \"$(cat ./files/nova/neutron.conf.template)\" > /etc/neutron/neutron.
 chgrp neutron /etc/neutron/neutron.conf
 
 mv /etc/neutron/plugins/ml2/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini.original
-cp ./files/nova/linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 eval "echo \"$(cat ./files/nova/linuxbridge_agent.ini.template)\" > /etc/neutron/plugins/ml2/linuxbridge_agent.ini"
 chgrp neutron /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
