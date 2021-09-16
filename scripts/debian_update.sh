@@ -2,7 +2,7 @@
 set -x #echo on
 
 sudo DEBIAN_FRONTEND=noninteractive apt-get update -yq
-apt-get install curl -y
+apt-get install curl gnupg -y
 curl http://osbpo.debian.net/osbpo/dists/pubkey.gpg | sudo apt-key add -
 
 mv /etc/apt/sources.list /etc/apt/sources.list.original
