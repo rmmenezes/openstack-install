@@ -5,7 +5,7 @@ mysql --user="openstack" -h database --password="password" --execute="CREATE DAT
 mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'database' IDENTIFIED BY 'GLANCE_DBPASS';"
 mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';"
 	
-apt install glance -y
+sudo DEBIAN_FRONTEND=noninteractive apt install glance -y
 
 mv /etc/glance/glance-api.conf /etc/glance/glance-api.conf.original
 cp ./files/glance/glance-api.conf /etc/glance/glance-api.conf

@@ -86,7 +86,7 @@ openstack compute service list
 openstack catalog list
 nova-status upgrade check
 
-apt install nova-compute -y
+sudo DEBIAN_FRONTEND=noninteractive apt install nova-compute -y
 egrep -c '(vmx|svm)' /proc/cpuinfo
 
 mv /etc/nova/nova-compute.conf /etc/nova/nova-compute.conf.original
@@ -102,7 +102,7 @@ su -s /bin/sh -c "nova-manage cell_v2 discover_hosts --verbose" nova
 openstack flavor create --public m1.extra_tiny --id auto --ram 256 --disk 0 --vcpus 1 --rxtx-factor 1
 
 # Neutron
-apt install neutron-linuxbridge-agent -y
+sudo DEBIAN_FRONTEND=noninteractive apt install neutron-linuxbridge-agent -y
 
 mv /etc/neutron/neutron.conf /etc/neutron/neutron.conf.original
 eval "echo \"$(cat ./files/nova/neutron.conf.template)\" > /etc/neutron/neutron.conf"

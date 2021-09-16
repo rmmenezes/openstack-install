@@ -6,5 +6,3 @@ $ip_vm_glance          glance
 $ip_vm_horizon         horizon
 $ip_vm_nova            nova
 $ip_vm_neutron         neutron
-
-# apt install nano git sudo -y && git clone https://github.com/rmmenezes/openstack-install && cd openstack-install/ && chmod 777 *.sh && ./debian_update.sh && ./default.sh

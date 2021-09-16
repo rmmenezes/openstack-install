@@ -5,7 +5,7 @@ mysql --user="openstack" --password="password" -h database --execute="CREATE DAT
 mysql --user="openstack" --password="password" -h database --execute="GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'database' IDENTIFIED BY 'KEYSTONE_DBPASS';"
 mysql --user="openstack" --password="password" -h database --execute="GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';"
 
-apt install keystone -y
+sudo DEBIAN_FRONTEND=noninteractive apt install keystone -y
 
 mv /etc/keystone/keystone.conf /etc/keystone/keystone.conf.original
 cp ./files/keystone/keystone.conf /etc/keystone/keystone.conf 

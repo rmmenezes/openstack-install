@@ -15,7 +15,7 @@ openstack endpoint create --region RegionOne network admin http://neutron:9696
 
 hwclock --hctosys 
 apt-get update -y
-apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent neutron-linuxbridge-agent -y
+sudo DEBIAN_FRONTEND=noninteractive apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-dhcp-agent neutron-metadata-agent neutron-linuxbridge-agent -y
 
 mv /etc/neutron/neutron.conf /etc/neutron/neutron.conf.original
 cp ./files/neutron/neutron.conf /etc/neutron/neutron.conf

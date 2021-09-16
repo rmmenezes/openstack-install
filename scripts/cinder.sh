@@ -20,7 +20,7 @@ openstack endpoint create --region RegionOne volumev3 public http://cinder:8776/
 openstack endpoint create --region RegionOne volumev3 internal http://cinder:8776/v3/%\(tenant_id\)s
 openstack endpoint create --region RegionOne volumev3 admin http://cinder:8776/v3/%\(tenant_id\)s
 
-apt install cinder-api cinder-scheduler -y
+sudo DEBIAN_FRONTEND=noninteractive apt install cinder-api cinder-scheduler -y
 
 mv /etc/cinder/cinder.conf /etc/cinder/cinder.conf.original
 cp ./files/cinder/cinder.conf /etc/cinder/cinder.conf
@@ -30,7 +30,7 @@ su -s /bin/sh -c "cinder-manage db sync" cinder
 systemctl restart cinder-scheduler
 openstack volume service list
 
-apt install lvm2 thin-provisioning-tools -y
+sudo DEBIAN_FRONTEND=noninteractive apt install lvm2 thin-provisioning-tools -y
 
 #monta o disco
 pvcreate /dev/vdb
@@ -38,7 +38,7 @@ vgcreate cinder-volumes /dev/vdb
 
 sed -i '/devices {$/a filter = [ "a/vdb/", "r/.*/"]' /etc/lvm/lvm.conf
 
-apt install cinder-volume -y
+sudo DEBIAN_FRONTEND=noninteractive apt install cinder-volume -y
 systemctl restart cinder-volume
 
 echo "FIM !"
