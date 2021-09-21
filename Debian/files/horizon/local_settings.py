@@ -21,7 +21,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_fip_topology_check': False,
 }
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-OPENSTACK_KEYSTONE_URL = "http://keystone:5000/v3"
+OPENSTACK_KEYSTONE_URL = "http://192.168.122.202:5000/v3"
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
 OPENSTACK_API_VERSIONS = {
     "identity": 3,

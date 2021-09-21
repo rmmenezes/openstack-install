@@ -1,0 +1,13 @@
+[DEFAULT]
+[agent]
+[linux_bridge]
+physical_interface_mappings = provider:enp1s0
+[network_log]
+[securitygroup]
+enable_security_group = True
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+[vxlan]
+enable_vxlan = True
+# EDITAR O (LOCAL_IP) PARA O ENDEREÇO DO NÓ DE COMPUTAÇÃO -> Endereço do "Nova"
+local_ip = $ip_vm_nova
+l2_population = True

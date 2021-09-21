@@ -1,0 +1,8 @@
+# sorce: /etc/apt/sources.list
+
+deb http://deb.debian.org/debian/ testing main
+deb-src http://deb.debian.org/debian/ testing main
+
+deb http://osbpo.debian.net/osbpo bullseye-wallaby-backports main
+deb http://osbpo.debian.net/osbpo bullseye-wallaby-backports-nochange main
+
