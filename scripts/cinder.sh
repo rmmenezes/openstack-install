@@ -2,9 +2,9 @@
 set -x #echo on
 
 # ANTES, CIRAR UM NOVO DISCO E ADICIONAR A VM NO VIRT_MANANGER!!!!
-mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS cinder;"
-mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'database' IDENTIFIED BY 'CINDER_DBPASS';"
-mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' IDENTIFIED BY 'CINDER_DBPASS';"
+mysql --user="root" --password="password" --execute="CREATE DATABASE IF NOT EXISTS cinder;"
+mysql --user="root" --password="password" --execute="GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'database' IDENTIFIED BY 'CINDER_DBPASS';"
+mysql --user="root" --password="password" --execute="GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' IDENTIFIED BY 'CINDER_DBPASS';"
 	
 openstack user create --domain default --password CINDER_PASS cinder
 openstack role add --project service --user cinder admin

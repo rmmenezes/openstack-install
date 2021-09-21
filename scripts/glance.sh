@@ -1,9 +1,9 @@
 #!/bin/bash
 set -x #echo on
 
-mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE IF NOT EXISTS glance;"
-mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'database' IDENTIFIED BY 'GLANCE_DBPASS';"
-mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';"
+mysql --user="root" --password="password" --execute="CREATE DATABASE IF NOT EXISTS glance;"
+mysql --user="root" --password="password" --execute="GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'database' IDENTIFIED BY 'GLANCE_DBPASS';"
+mysql --user="root" --password="password" --execute="GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';"
 	
 sudo DEBIAN_FRONTEND=noninteractive apt install glance -y
 

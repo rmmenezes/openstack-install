@@ -2,12 +2,12 @@
 
 cat > ~/.bashrc << EOF
 ## Edit here ##
-export ip_vm_database="192.168.122.125"
-export ip_vm_keystone="192.168.122.125"
-export ip_vm_glance="192.168.122.125"
-export ip_vm_horizon="192.168.122.125"
-export ip_vm_nova="192.168.122.125"
-export ip_vm_neutron="192.168.122.125"
+export ip_vm_database="192.168.122.202"
+export ip_vm_keystone="192.168.122.202"
+export ip_vm_glance="192.168.122.202"
+export ip_vm_horizon="192.168.122.202"
+export ip_vm_nova="192.168.122.202"
+export ip_vm_neutron="192.168.122.202"
 ## Edit here ##
 
 ## Dont edit here ##

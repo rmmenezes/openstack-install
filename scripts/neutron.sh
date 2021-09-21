@@ -1,9 +1,9 @@
 #!/bin/bash
 set -x #echo on
 
-mysql --user="openstack" -h database --password="password" --execute="CREATE DATABASE neutron;"
-mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'database' IDENTIFIED BY 'NEUTRON_DBPASS';"
-mysql --user="openstack" -h database --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';"
+mysql --user="root" --password="password" --execute="CREATE DATABASE neutron;"
+mysql --user="root" --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'database' IDENTIFIED BY 'NEUTRON_DBPASS';"
+mysql --user="root" --password="password" --execute="GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';"
 
 openstack user create --domain default --password NEUTRON_PASS neutron
 openstack role add --project service --user neutron admin
