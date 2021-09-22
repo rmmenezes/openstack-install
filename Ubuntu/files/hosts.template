@@ -1,5 +1,4 @@
 127.0.0.1	localhost
-127.0.1.1	controller
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback
@@ -13,4 +12,5 @@ $ip_vm_horizon         horizon
 $ip_vm_nova_controller nova_controller
 $ip_vm_neutron         neutron
 $ip_vm_placement       placement
+
 $ip_vm_nova_compute    nova_compute
