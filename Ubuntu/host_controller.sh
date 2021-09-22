@@ -19,6 +19,8 @@ chmod 777 ./scripts/default.sh
 chmod 777 ./scripts/keystone.sh
 chmod 777 ./scripts/glance.sh
 chmod 777 ./scripts/horizon.sh
+chmod 777 ./scripts/placement.sh
+chmod 777 ./scripts/nova_controller.sh
 
 ./scripts/debian_update.sh
 ./scripts/database.sh
@@ -26,3 +28,5 @@ chmod 777 ./scripts/horizon.sh
 ./scripts/keystone.sh
 ./scripts/glance.sh
 ./scripts/horizon.sh
+./scripts/placement.sh
+./scripts/nova_controller.sh
