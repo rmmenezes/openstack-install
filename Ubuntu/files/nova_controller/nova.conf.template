@@ -82,6 +82,7 @@ password = PLACEMENT_PASS
 [rdp]
 [remote_debug]
 [scheduler]
+discover_hosts_in_cells_interval = 300
 [serial_console]
 [service_user]
 [spice]
