@@ -9,6 +9,7 @@ export ip_vm_horizon="192.168.122.202"
 export ip_vm_placement="192.168.122.202"
 export ip_vm_nova_controller="192.168.122.202"
 export ip_vm_neutron_controller="192.168.122.202"
+export ip_vm_cinder="192.168.122.202"
 
 export ip_vm_nova_compute="192.168.122.204"
 export ip_vm_neutron_compute="192.168.122.204"

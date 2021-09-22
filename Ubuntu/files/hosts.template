@@ -12,6 +12,7 @@ $ip_vm_horizon              horizon
 $ip_vm_placement            placement
 $ip_vm_nova_controller      nova_controller
 $ip_vm_neutron_controller   neutron_controller
+$ip_vm_cinder               cinder
 
 $ip_vm_nova_compute         nova_compute
 $ip_vm_neutron_compute      neutron_compute
