@@ -13,8 +13,8 @@ source ~/.bashrc
 cp /etc/hosts /etc/hosts.original
 eval "echo \"$(cat ./files/hosts.template)\" > /etc/hosts"
 
-chmod 777 ./scripts/debian_update.sh
-chmod 777 ./scripts/default.sh
+chmod 777 ./scripts/ubuntu_update.sh
+chmod 777 ./scripts/nova_compute.sh
 
-./scripts/debian_update.sh
-./scripts/default.sh
+./scripts/ubuntu_update.sh
+./scripts/nova_compute.sh

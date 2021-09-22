@@ -7,4 +7,8 @@ mv /etc/nova/nova.conf /etc/nova/nova.conf.original
 eval "echo \"$(cat ./files/nova_compute/nova.conf.template)\" > /etc/nova/nova.conf"
 chgrp nova /etc/nova/nova.conf
 
-echo "FIM !"
+mv /etc/nova/nova-compute.conf /etc/nova/nova-compute.conf.original
+eval "echo \"$(cat ./files/nova_compute/nova-compute.conf.template)\" > /etc/nova/nova-compute.conf"
+chgrp nova /etc/nova/nova-compute.conf
+
+echo "FIM
