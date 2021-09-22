@@ -7,8 +7,10 @@ export ip_vm_keystone="192.168.122.202"
 export ip_vm_glance="192.168.122.202"
 export ip_vm_horizon="192.168.122.202"
 export ip_vm_placement="192.168.122.202"
-export ip_vm_nova="192.168.122.202"
+export ip_vm_nova_controller="192.168.122.202"
 export ip_vm_neutron="192.168.122.202"
+
+export ip_vm_nova_compute="192.168.122.204"
 ## Edit here ##
 
 ## Dont edit here ##

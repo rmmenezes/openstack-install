@@ -1,7 +1,7 @@
 [DEFAULT]
 # EDITAR O (MY_IP) PARA O ENDEREÇO DO NÓ DE COMPUTAÇÃO -> Endereço do "Nova"
 transport_url = rabbit://openstack:RABBIT_PASS@keystone:5672
-my_ip = $ip_vm_nova
+my_ip = $ip_vm_nova_controller
 use_neutron = true
 firewall_driver = nova.virt.firewall.NoopFirewallDriver
 lock_path = /var/lock/nova
@@ -92,8 +92,8 @@ password = PLACEMENT_PASS
 [vnc]
 enabled = True
 server_listen = 0.0.0.0
-server_proxyclient_address = $ip_vm_nova
-novncproxy_base_url = http://$ip_vm_nova:6080/vnc_auto.html 
+server_proxyclient_address = $ip_vm_nova_controller
+novncproxy_base_url = http://$ip_vm_nova_controller:6080/vnc_auto.html 
 [workarounds]
 [wsgi]
 [zvm]

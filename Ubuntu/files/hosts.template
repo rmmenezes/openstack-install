@@ -10,6 +10,7 @@ $ip_vm_database        database
 $ip_vm_keystone        keystone
 $ip_vm_glance          glance
 $ip_vm_horizon         horizon
-$ip_vm_nova            nova
+$ip_vm_nova_controller nova_controller
 $ip_vm_neutron         neutron
 $ip_vm_placement       placement
+$ip_vm_nova_compute    nova_compute
