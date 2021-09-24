@@ -33,7 +33,7 @@ cp ./files/neutron_controller/dhcp_agent.ini /etc/neutron/dhcp_agent.ini
 chgrp neutron /etc/neutron/dhcp_agent.ini
 
 mv /etc/neutron/metadata_agent.ini /etc/neutron/metadata_agent.ini.original
-cp ./files/neutron_controller/metadata_agent.ini /etc/neutron/metadata_agent.ini
+eval "echo \"$(cat ./files/neutron_controller/metadata_agent.ini.template)\" > /etc/neutron/metadata_agent.ini"
 chgrp neutron /etc/neutron/metadata_agent.ini
 
 su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron

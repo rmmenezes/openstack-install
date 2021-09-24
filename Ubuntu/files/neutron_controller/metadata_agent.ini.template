@@ -1,5 +1,5 @@
 [DEFAULT]
 metadata_proxy_shared_secret = METADATA_SECRET
-nova_metadata_host = nova_controller
+nova_metadata_host = $ip_vm_nova_compute
 [agent]
 [cache]
