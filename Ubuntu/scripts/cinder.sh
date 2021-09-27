@@ -12,13 +12,13 @@ openstack role add --project service --user cinder admin
 openstack service create --name cinderv2 --description "OpenStack Block Storage" volumev2
 openstack service create --name cinderv3 --description "OpenStack Block Storage" volumev3
 
-openstack endpoint create --region RegionOne volumev2 public http://cinder:8776/v2/%\(project_id\)s
-openstack endpoint create --region RegionOne volumev2 internal http://cinder:8776/v2/%\(project_id\)s
-openstack endpoint create --region RegionOne volumev2 admin http://cinder:8776/v2/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev2 public http://cinder:8776/v2/%\(tenant_id\)s
+openstack endpoint create --region RegionOne volumev2 internal http://cinder:8776/v2/%\(tenant_id\)s
+openstack endpoint create --region RegionOne volumev2 admin http://cinder:8776/v2/%\(tenant_id\)s
 
-openstack endpoint create --region RegionOne volumev3 public http://cinder:8776/v3/%\(project_id\)s
-openstack endpoint create --region RegionOne volumev3 internal http://cinder:8776/v3/%\(project_id\)s
-openstack endpoint create --region RegionOne volumev3 admin http://cinder:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev3 public http://cinder:8776/v3/%\(tenant_id\)s
+openstack endpoint create --region RegionOne volumev3 internal http://cinder:8776/v3/%\(tenant_id\)s
+openstack endpoint create --region RegionOne volumev3 admin http://cinder:8776/v3/%\(tenant_id\)s
 
 apt install cinder-api cinder-scheduler -y
 
@@ -32,7 +32,7 @@ sudo systemctl restart nova-api
 systemctl restart cinder-scheduler
 sudo systemctl restart apache2
 
-openstack volume service list
+openstack volume service listtenant_id
 
 apt install lvm2 tgt thin-provisioning-tools -y
 
