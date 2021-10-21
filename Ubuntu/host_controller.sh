@@ -26,7 +26,7 @@ chmod 777 ./scripts/horizon.sh
 chmod 777 ./scripts/placement.sh
 chmod 777 ./scripts/nova_controller.sh
 chmod 777 ./scripts/neutron_controller.sh
-chmod 777 ./scripts/cinder.sh
+#chmod 777 ./scripts/cinder.sh
 
 ./scripts/debian_update.sh
 ./scripts/database.sh
@@ -37,4 +37,4 @@ chmod 777 ./scripts/cinder.sh
 ./scripts/placement.sh
 ./scripts/nova_controller.sh
 ./scripts/neutron_controller.sh
-./scripts/cinder.sh
+#./scripts/cinder.sh
