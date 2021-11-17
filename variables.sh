@@ -2,14 +2,14 @@
 
 cat > ~/.bashrc << EOF
 ## Edit here ##
-export ip_vm_database="192.168.122.61"
-export ip_vm_keystone="192.168.122.61"
-export ip_vm_glance="192.168.122.61"
-export ip_vm_horizon="192.168.122.61"
-export ip_vm_placement="192.168.122.61"
-export ip_vm_nova_controller="192.168.122.61"
-export ip_vm_neutron_controller="192.168.122.61"
-export ip_vm_cinder="192.168.122.61"
+export ip_vm_database="192.168.122.208"
+export ip_vm_keystone="192.168.122.208"
+export ip_vm_glance="192.168.122.208"
+export ip_vm_horizon="192.168.122.208"
+export ip_vm_placement="192.168.122.208"
+export ip_vm_nova_controller="192.168.122.208"
+export ip_vm_neutron_controller="192.168.122.208"
+export ip_vm_cinder="192.168.122.208"
 
 export ip_vm_nova_compute="192.168.122.78"
 export ip_vm_neutron_compute="192.168.122.78"
