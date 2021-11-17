@@ -11,8 +11,8 @@ export ip_vm_nova_controller="192.168.122.208"
 export ip_vm_neutron_controller="192.168.122.208"
 export ip_vm_cinder="192.168.122.208"
 
-export ip_vm_nova_compute="192.168.122.78"
-export ip_vm_neutron_compute="192.168.122.78"
+export ip_vm_nova_compute="192.168.122.208"
+export ip_vm_neutron_compute="192.168.122.208"
 ## Edit here ##
 
 ## Dont edit here ##
